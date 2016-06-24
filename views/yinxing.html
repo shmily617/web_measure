@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+	<title>隐形材料</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<div class="container">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h1 class="middle">多层介质球电磁散射仿真软件</h1>
+			</div>
+			<ul class="breadcrumb" style="font-size:20px;margin-top:20px;margin-bottom:0px;">
+			  <li class="active">隐形材料</li>		  
+			  <li><a href="zidingyi">自定义</a> <span class="divider"></span></li>
+			  <li><a href="longbo">龙伯球</a> <span class="divider"></span></li>
+			</ul>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-5">
+						<div class="panel panel-info" >
+							<div class="panel-heading">
+								<h3 class="middle">隐形材料仿真</h3>
+							</div>
+							<div class="panel-body" >
+								<!-- <form class="form-horizontal" action="" > -->
+								<div class="form-group">
+									<label class="col-sm-4 text-1">请选择材料</label>
+									<div class="col-sm-4">
+										<button id="btn"   class="btn btn-info" onclick= "document.getElementById('result_choose').innerHTML = '碳纳米材料的半径：3.0005，介电常数：27+12.3j'">碳纳米</button>
+									</div>
+									<div class="col-sm-4">
+										<button id="btn"   class="btn btn-info">钢薄膜</button>
+									</div>
+									
+								</div>
+								<p class="result_choose" id ="result_choose" ></p>
+								<table class="table ">
+									<thead>
+										<tr>
+											<td style="text-align:center;">r1:&nbsp&nbsp&nbsp3.0000</td>
+											<td style="text-align:center;">ε1:&nbsp&nbsp&nbsp0+0j</td>
+										</tr>
+									</thead>
+									<tr>
+										<td style="text-align:center;">r2:&nbsp&nbsp&nbsp3.0005</td>
+										<td style="text-align:center;">ε2:&nbsp&nbsp&nbsp27+12.3j</td>
+									</tr>
+								</table>	
+							</div>
+						</div>
+						<div class="panel panel-warning" style="height:305px;overflow-y:scroll;">
+							<div class="panel-heading">
+								<h3 class="middle">计算结果</h3>
+							</div>
+							<div class="panel-body">
+								<table id="calResult" class="table table-striped">
+									<tr>
+										<td style="text-align:center;">角度(θ)</td>
+										<td style="text-align:center;">RCS(theta-theta)</td>
+										<td style="text-align:center;">RCS(phi-phi)</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<div class="panel panel-danger">
+							<div class="panel-heading">
+								<h3 class="middle">隐形材料散射截面</h3>
+							</div>
+							<div class="panel-body">
+								<img src="data/nami.png"  alt="隐形材料散射截面" style="margin-left: 20px;width:733px;height:550px;">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script>
+	var calResult = document.getElementById('calResult');
+	var result = [18.2219, 18.3367, 18.5560, 18.8934, 19.3309, 19.8180, 20.2884, 20.6792, 20.9419,
+    21.0442, 20.9676, 20.7057, 20.2629, 19.6560, 18.9169, 18.0962, 17.2619, 16.4899];
+    var num = [18.2237, 18.3294, 18.4956, 18.7083, 18.9505, 19.2037, 19.4496, 19.6717, 19.8556];
+	var calResultHTML = '<tr><td style="text-align:center;">角度(θ)</td><td style="text-align:center;">RCS(theta-theta)</td><td style="text-align:center;">RCS(phi-phi)</td></tr>';
+	// var index = 1;
+	// result.forEach(function(num) {
+	// 	calResultHTML += '<tr><td style="text-align:center;">' + index++ + '</td><td style="text-align:center;">' + num + '</td><td style="text-align:center;">' + num2 + '</td></tr>';
+	// });
+	for (var i = 0; i < result.length; i++) {
+		calResultHTML += '<tr><td style="text-align:center;">' + (i+1) + '</td><td style="text-align:center;">' + result[i] + '</td><td style="text-align:center;">' + num[i] + '</td></tr>';
+
+	};
+	calResult.innerHTML = calResultHTML;
+</script>
+</html>
