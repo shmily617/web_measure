@@ -45,7 +45,6 @@
 							<h3 class="middle">介电常数</h3>
 						</div>
 						<table id="jdConst" class="table table-striped">
-
 						</table>
 					</div>
 				</div>
@@ -55,7 +54,7 @@
 							<h3 class="middle">龙伯球散射截面</h3>
 						</div>
 						<div class="panel-body">
-							<img src=""  alt="龙伯球散射截面" style="margin-left: 20px;width:733px;height:550px;">
+							<img src="{{position}}"  alt="龙伯球散射截面" style="margin-left: 20px;width:733px;height:550px;">
 						</div>
 					</div>
 				</div>
@@ -63,11 +62,12 @@
 		</div>
 		</div>
 	</div>
+	<div id="shenjingbing" style="display: none;">{{dataOut}}</div>
 </body>
 <script>
 	var jdConst = document.getElementById('jdConst');
-	var result = [];
-	// var result = [1.9975, 1.9775, 1.9375, 1.8775, 1.7975, 1.6975, 1.5775, 1.4375, 1.2775, 1.0975];
+	var result = document.getElementById('shenjingbing').innerText;
+	result = result.split(/\,/);
 	var jdConstHTML = '';
 	result.forEach(function(num) {
 		jdConstHTML += '<tr><td style="text-align:center;">' + num + '</td></tr>';
@@ -78,6 +78,7 @@
 		var longboLayerNum = document.getElementById('longboLayerNum').value;
 		var btn = document.getElementById('btn');
 		var re = /^([1-9]|10)$/;
+		console.log(re.test(longboLayerNum));
 		if (re.test(longboLayerNum)) {
 			btn.disabled = false;
 		} else {

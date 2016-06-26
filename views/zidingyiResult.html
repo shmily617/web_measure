@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+	<title>自定义仿真</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	<div class="container">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h1 class="middle">多层介质球电磁散射仿真软件</h1>
+			</div>
+			<ul class="breadcrumb" style="font-size:20px;margin-top:10px;margin-bottom:0px;">
+			  <li class="active">自定义</li>		  
+			  <li><a href="longbo">龙伯球</a> <span class="divider"></span></li>
+			  <li><a href="yinxing">隐形材料</a> <span class="divider"></span></li>
+			</ul>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-5">
+						<div class="panel panel-info" style="height:305px;overflow-y:scroll;">
+							<div class="panel-heading">
+								<h3 class="middle">自定义仿真</h3>
+							</div>
+							<div class="panel-body">
+								<form class="form-horizontal" action="/zidingyi" method="post">
+									<div class="form-group">
+										<label class="col-sm-4 text-1">层数</label>
+										<div class="col-sm-4">
+											<input type="text" name="layer" class="form-control" placeholder="{{dataIn.layer}}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-1 text-1">r1</label>
+										<div class="col-sm-2">
+											<input type="text" name="r1" class="form-control" placeholder="{{dataIn.r1}}">
+										</div>
+										<label class="col-sm-1 text-1">cm</label>
+										<label class="col-sm-1 text-1">ε1</label>
+										<div class="col-sm-2">
+											<input type="text" name="z1" class="form-control" placeholder="{{dataIn.z1}}">
+										</div>
+										<label class="col-sm-1 control-label">+j</label>
+										<div class="col-sm-2">
+											<input type="text" name="j1" class="form-control" placeholder="{{dataIn.j1}}">
+										</div>
+										<div class="col-sm-2">	
+										</div>
+										<div class="col-sm-2">
+											<button type="submit" class="btn btn-info">确 定</button>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-1 text-1">r2</label>
+										<div class="col-sm-2">
+											<input type="text" name="r2" class="form-control" placeholder="{{dataIn.r2}}">
+										</div>
+										<label class="col-sm-1 text-1">cm</label>
+										<label class="col-sm-1 text-1">ε2</label>
+										<div class="col-sm-2">
+											<input type="text" name="z2" class="form-control" placeholder="{{dataIn.z2}}">
+										</div>
+										<label class="col-sm-1 control-label">+j</label>
+										<div class="col-sm-2">
+											<input type="text" name="j2" class="form-control" placeholder="{{dataIn.j2}}">
+										</div>
+										<div class="col-sm-2">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-1 text-1">r3</label>
+										<div class="col-sm-2">
+											<input type="text" name="r3" class="form-control" placeholder="{{dataIn.r3}}">
+										</div>
+										<label class="col-sm-1 text-1">cm</label>
+										<label class="col-sm-1 text-1">ε3</label>
+										<div class="col-sm-2">
+											<input type="text" name="z3" class="form-control" placeholder="{{dataIn.z3}}">
+										</div>
+										<label class="col-sm-1 control-label">+j</label>
+										<div class="col-sm-2">
+											<input type="text" name="j3" class="form-control" placeholder="{{dataIn.j3}}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-1 text-1">r4</label>
+										<div class="col-sm-2">
+											<input type="text" name="r4" class="form-control" placeholder="{{dataIn.r4}}">
+										</div>
+										<label class="col-sm-1 text-1">cm</label>
+										<label class="col-sm-1 text-1">ε4</label>
+										<div class="col-sm-2">
+											<input type="text" name="z4" class="form-control" placeholder="{{dataIn.z4}}">
+										</div>
+										<label class="col-sm-1 control-label">+j</label>
+										<div class="col-sm-2">
+											<input type="text" name="j4" class="form-control" placeholder="{{dataIn.j4}}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-1 text-1">r5</label>
+										<div class="col-sm-2">
+											<input type="text" name="r5" class="form-control" placeholder="{{dataIn.r5}}">
+										</div>
+										<label class="col-sm-1 text-1">cm</label>
+										<label class="col-sm-1 text-1">ε5</label>
+										<div class="col-sm-2">
+											<input type="text" name="z5" class="form-control" placeholder="{{dataIn.z5}}">
+										</div>
+										<label class="col-sm-1 control-label">+j</label>
+										<div class="col-sm-2">
+											<input type="text" name="j5" class="form-control" placeholder="{{dataIn.j5}}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-1 text-1">r6</label>
+										<div class="col-sm-2">
+											<input type="text" name="r6" class="form-control" placeholder="{{dataIn.r6}}">
+										</div>
+										<label class="col-sm-1 text-1">cm</label>
+										<label class="col-sm-1 text-1">ε6</label>
+										<div class="col-sm-2">
+											<input type="text" name="z6" class="form-control" placeholder="{{dataIn.z6}}">
+										</div>
+										<label class="col-sm-1 control-label">+j</label>
+										<div class="col-sm-2">
+											<input type="text" name="j6" class="form-control" placeholder="{{dataIn.j6}}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-1 text-1">r7</label>
+										<div class="col-sm-2">
+											<input type="text" name="r7" class="form-control" placeholder="{{dataIn.r7}}">
+										</div>
+										<label class="col-sm-1 text-1">cm</label>
+										<label class="col-sm-1 text-1">ε7</label>
+										<div class="col-sm-2">
+											<input type="text" name="z7" class="form-control" placeholder="{{dataIn.z7}}">
+										</div>
+										<label class="col-sm-1 control-label">+j</label>
+										<div class="col-sm-2">
+											<input type="text" name="j7" class="form-control" placeholder="{{dataIn.j7}}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-1 text-1">r8</label>
+										<div class="col-sm-2">
+											<input type="text" name="r8" class="form-control" placeholder="{{dataIn.r8}}">
+										</div>
+										<label class="col-sm-1 text-1">cm</label>
+										<label class="col-sm-1 text-1">ε8</label>
+										<div class="col-sm-2">
+											<input type="text" name="z8" class="form-control" placeholder="{{dataIn.z8}}">
+										</div>
+										<label class="col-sm-1 control-label">+j</label>
+										<div class="col-sm-2">
+											<input type="text" name="j8" class="form-control" placeholder="{{dataIn.j8}}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-1 text-1">r9</label>
+										<div class="col-sm-2">
+											<input type="text" name="r9" class="form-control" placeholder="{{dataIn.r9}}">
+										</div>
+										<label class="col-sm-1 text-1">cm</label>
+										<label class="col-sm-1 text-1">ε9</label>
+										<div class="col-sm-2">
+											<input type="text" name="z9" class="form-control" placeholder="{{dataIn.z9}}">
+										</div>
+										<label class="col-sm-1 control-label">+j</label>
+										<div class="col-sm-2">
+											<input type="text" name="j9" class="form-control" placeholder="{{dataIn.j9}}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-1 text-1">r10</label>
+										<div class="col-sm-2">
+											<input type="text" name="r10" class="form-control" placeholder="{{dataIn.r10}}">
+										</div>
+										<label class="col-sm-1 text-1">cm</label>
+										<label class="col-sm-1 text-1">ε10</label>
+										<div class="col-sm-2">
+											<input type="text" name="z10" class="form-control" placeholder="{{dataIn.z10}}">
+										</div>
+										<label class="col-sm-1 control-label">+j</label>
+										<div class="col-sm-2">
+											<input type="text" name="j10" class="form-control" placeholder="{{dataIn.j10}}">
+										</div>
+									</div>
+		·						</from>
+							</div>
+						</div>
+						<div class="panel panel-warning" style="height:305px;overflow-y:scroll;">
+							<div class="panel-heading">
+								<h3 class="middle">计算结果</h3>
+							</div>
+							<div class="panel-body">
+								<table id="calResult" class="table table-striped">
+									<tr>
+										<td style="text-align:center;">角度(θ)</td>
+										<td style="text-align:center;">RCS(theta-theta)</td>
+										<td style="text-align:center;">RCS(phi-phi)</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<div class="panel panel-danger">
+							<div class="panel-heading">
+								<h3 class="middle">自定义散射截面</h3>
+							</div>
+							<div class="panel-body">
+								<img src="{{position}}"  alt="自定义散射截面" style="margin-left: 20px;width:733px;height:550px;">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="shenjingbing" style="display:none;">{{rcst}}</div>
+<div id="lebai" style="display:none;">{{rcsp}}</div>
+</body>
+<script>
+	var calResult = document.getElementById('calResult');
+	var rcst = document.getElementById("shenjingbing").innerText;
+	var rcsp = document.getElementById("lebai").innerText;
+	rcst = rcst.split(/\,/);
+	rcsp = rcsp.split(/\,/);
+	// var result = [12.8563, 13.1891, 13.6803, 14.2536, 14.8314, 15.3469, 15.7500, 16.0071, 16.0997];
+	// var num = [12.7787, 12.8958, 13.0785, 13.3101, 13.5710, 13.8409, 14.1011, 14.3356, 14.5322];
+	var calResultHTML = '<tr><td style="text-align:center;">角度(θ)</td><td style="text-align:center;">RCS(theta-theta)</td><td style="text-align:center;">RCS(phi-phi)</td></tr>';
+	// var index = 1;
+	// result.forEach(function(num) {
+	// 	calResultHTML += '<tr><td style="text-align:center;">' + index++ + '</td><td style="text-align:center;">' + num + '</td><td style="text-align:center;">' + num2 + '</td></tr>';
+	// });
+	for (var i = 0; i < rcst.length; i++) {
+		calResultHTML += '<tr><td style="text-align:center;">' + (i+1) + '</td><td style="text-align:center;">' + rcst[i] + '</td><td style="text-align:center;">' + rcsp[i] + '</td></tr>';
+
+	};
+	calResult.innerHTML = calResultHTML;
+
+</script>
+</html>

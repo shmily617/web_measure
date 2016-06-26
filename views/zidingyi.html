@@ -26,17 +26,17 @@
 								<h3 class="middle">自定义仿真</h3>
 							</div>
 							<div class="panel-body">
-								<form class="form-horizontal" action="/zidiying" method="post">
+								<form class="form-horizontal" id="formCollection" action="/zidingyi" method="post">
 									<div class="form-group">
 										<label class="col-sm-4 text-1">层数</label>
 										<div class="col-sm-4">
-											<input type="text" name="z0" class="form-control" placeholder="层数(1-10的整数){{dataIn.z0}}">
+											<input type="text" name="layer" class="form-control" placeholder="层数(1-10的整数)">
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-1 text-1">r1</label>
 										<div class="col-sm-2">
-											<input type="text" name="f1" class="form-control" placeholder="半径">
+											<input type="text" name="r1" class="form-control" placeholder="半径">
 										</div>
 										<label class="col-sm-1 text-1">cm</label>
 										<label class="col-sm-1 text-1">ε1</label>
@@ -53,144 +53,7 @@
 											<button type="submit" class="btn btn-info">确 定</button>
 										</div>
 									</div>
-									<div class="form-group">
-										<label class="col-sm-1 text-1">r2</label>
-										<div class="col-sm-2">
-											<input type="text" name="f2" class="form-control" placeholder="半径">
-										</div>
-										<label class="col-sm-1 text-1">cm</label>
-										<label class="col-sm-1 text-1">ε2</label>
-										<div class="col-sm-2">
-											<input type="text" name="z2" class="form-control" placeholder="实部">
-										</div>
-										<label class="col-sm-1 control-label">+j</label>
-										<div class="col-sm-2">
-											<input type="text" name="j2" class="form-control" placeholder="虚部">
-										</div>
-										<div class="col-sm-2">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-1 text-1">r3</label>
-										<div class="col-sm-2">
-											<input type="text" name="f3" class="form-control" placeholder="半径">
-										</div>
-										<label class="col-sm-1 text-1">cm</label>
-										<label class="col-sm-1 text-1">ε3</label>
-										<div class="col-sm-2">
-											<input type="text" name="z3" class="form-control" placeholder="实部">
-										</div>
-										<label class="col-sm-1 control-label">+j</label>
-										<div class="col-sm-2">
-											<input type="text" name="j3" class="form-control" placeholder="虚部">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-1 text-1">r4</label>
-										<div class="col-sm-2">
-											<input type="text" name="f3" class="form-control" placeholder="半径">
-										</div>
-										<label class="col-sm-1 text-1">cm</label>
-										<label class="col-sm-1 text-1">ε4</label>
-										<div class="col-sm-2">
-											<input type="text" name="z3" class="form-control" placeholder="实部">
-										</div>
-										<label class="col-sm-1 control-label">+j</label>
-										<div class="col-sm-2">
-											<input type="text" name="j3" class="form-control" placeholder="虚部">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-1 text-1">r5</label>
-										<div class="col-sm-2">
-											<input type="text" name="f3" class="form-control" placeholder="半径">
-										</div>
-										<label class="col-sm-1 text-1">cm</label>
-										<label class="col-sm-1 text-1">ε5</label>
-										<div class="col-sm-2">
-											<input type="text" name="z3" class="form-control" placeholder="实部">
-										</div>
-										<label class="col-sm-1 control-label">+j</label>
-										<div class="col-sm-2">
-											<input type="text" name="j3" class="form-control" placeholder="虚部">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-1 text-1">r6</label>
-										<div class="col-sm-2">
-											<input type="text" name="f3" class="form-control" placeholder="半径">
-										</div>
-										<label class="col-sm-1 text-1">cm</label>
-										<label class="col-sm-1 text-1">ε6</label>
-										<div class="col-sm-2">
-											<input type="text" name="z3" class="form-control" placeholder="实部">
-										</div>
-										<label class="col-sm-1 control-label">+j</label>
-										<div class="col-sm-2">
-											<input type="text" name="j3" class="form-control" placeholder="虚部">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-1 text-1">r7</label>
-										<div class="col-sm-2">
-											<input type="text" name="f3" class="form-control" placeholder="半径">
-										</div>
-										<label class="col-sm-1 text-1">cm</label>
-										<label class="col-sm-1 text-1">ε7</label>
-										<div class="col-sm-2">
-											<input type="text" name="z3" class="form-control" placeholder="实部">
-										</div>
-										<label class="col-sm-1 control-label">+j</label>
-										<div class="col-sm-2">
-											<input type="text" name="j3" class="form-control" placeholder="虚部">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-1 text-1">r8</label>
-										<div class="col-sm-2">
-											<input type="text" name="f3" class="form-control" placeholder="半径">
-										</div>
-										<label class="col-sm-1 text-1">cm</label>
-										<label class="col-sm-1 text-1">ε8</label>
-										<div class="col-sm-2">
-											<input type="text" name="z3" class="form-control" placeholder="实部">
-										</div>
-										<label class="col-sm-1 control-label">+j</label>
-										<div class="col-sm-2">
-											<input type="text" name="j3" class="form-control" placeholder="虚部">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-1 text-1">r9</label>
-										<div class="col-sm-2">
-											<input type="text" name="f3" class="form-control" placeholder="半径">
-										</div>
-										<label class="col-sm-1 text-1">cm</label>
-										<label class="col-sm-1 text-1">ε9</label>
-										<div class="col-sm-2">
-											<input type="text" name="z3" class="form-control" placeholder="实部">
-										</div>
-										<label class="col-sm-1 control-label">+j</label>
-										<div class="col-sm-2">
-											<input type="text" name="j3" class="form-control" placeholder="虚部">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-1 text-1">r10</label>
-										<div class="col-sm-2">
-											<input type="text" name="f3" class="form-control" placeholder="半径">
-										</div>
-										<label class="col-sm-1 text-1">cm</label>
-										<label class="col-sm-1 text-1">ε10</label>
-										<div class="col-sm-2">
-											<input type="text" name="z3" class="form-control" placeholder="实部">
-										</div>
-										<label class="col-sm-1 control-label">+j</label>
-										<div class="col-sm-2">
-											<input type="text" name="j3" class="form-control" placeholder="虚部">
-										</div>
-									</div>
-		·						</from>
+								</from>
 							</div>
 						</div>
 						<div class="panel panel-warning" style="height:305px;overflow-y:scroll;">
@@ -214,7 +77,7 @@
 								<h3 class="middle">自定义散射截面</h3>
 							</div>
 							<div class="panel-body">
-								<img src="data/zidingyi1.png"  alt="自定义散射截面" style="margin-left: 20px;width:733px;height:550px;">
+								<img src=""  alt="自定义散射截面" style="margin-left: 20px;width:733px;height:550px;">
 							</div>
 						</div>
 					</div>
@@ -224,10 +87,22 @@
 	</div>
 </div>
 </body>
+<script >
+	var formCollection = document.getElementById('formCollection');
+	var formLen = 10;
+	for (var i = 2; i <= formLen; i++) {
+		var formNode = document.createElement('div');
+		formNode.setAttribute('class', 'form-group');
+		formNode.innerHTML = '<label class="col-sm-1 text-1">r'+ i +'</label><div class="col-sm-2"><input type="text" name="r' + i +'" class="form-control" placeholder="半径"></div><label class="col-sm-1 text-1">cm</label><label class="col-sm-1 text-1">ε' + i +'</label><div class="col-sm-2"><input type="text" name="z'+ i +'" class="form-control" placeholder="实部"></div><label class="col-sm-1 control-label">+j</label><div class="col-sm-2"><input type="text" name="j' + i +'" class="form-control" placeholder="虚部"></div><div class="col-sm-2"></div>';
+		formCollection.appendChild(formNode);
+	};
+</script>
 <script>
 	var calResult = document.getElementById('calResult');
-	var result = [12.8563, 13.1891, 13.6803, 14.2536, 14.8314, 15.3469, 15.7500, 16.0071, 16.0997];
-	var num = [12.7787, 12.8958, 13.0785, 13.3101, 13.5710, 13.8409, 14.1011, 14.3356, 14.5322];
+	var result = [];
+	var num = [];
+	// var result = [12.8563, 13.1891, 13.6803, 14.2536, 14.8314, 15.3469, 15.7500, 16.0071, 16.0997];
+	// var num = [12.7787, 12.8958, 13.0785, 13.3101, 13.5710, 13.8409, 14.1011, 14.3356, 14.5322];
 	var calResultHTML = '<tr><td style="text-align:center;">角度(θ)</td><td style="text-align:center;">RCS(theta-theta)</td><td style="text-align:center;">RCS(phi-phi)</td></tr>';
 	// var index = 1;
 	// result.forEach(function(num) {

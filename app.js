@@ -6,7 +6,13 @@ var hbs = require('hbs');
 var mongoose = require('mongoose');
 var MongoStore = require('connect-mongo')(session);
 var hash = require('./pass').hash;
-var calculateResult = require('./calculate.js').calculateResult;
+// var calculateResult = require('./calculate.js').calculateResult;
+var longboResult = require('./calculate/longbo/longboCal.js').longboResult;
+var yinxingResult = require('./calculate/yinxing/yinxingCal.js').yinxingResult;
+var zidingyiResult = require('./calculate/zidingyi/zidingyiCal.js').zidingyiResult;
+
+var spawn = require('child_process').spawn;
+var matlabProcess = spawn('/Applications/MATLAB_R2014b.app/bin/matlab',['-nosplash','-nodesktop']);
 
 var app = express();
 app.listen(3000);
@@ -111,7 +117,7 @@ app.get('/', function (req, res) {
 });
 app.get('/index', function (req, res) {
 	if (req.session.user) {
-		res.render('index', {dataUser: req.session.user});
+		res.render('longbo', {dataUser: req.session.user});
 	} else {
 		res.redirect('/')
 	}
@@ -196,47 +202,93 @@ app.post('/register', userExist, function (req, res) {
 });
 
 app.post('/longbo', function(req, res) {
-	var longboLayerNum = req.body;
-	console.log(longboLayerNum);
+	var longbo = req.body.longboLayerNum;
+		// console.log("======="+longbo);
+	// console.log(longbo.longboLayerNum);
+	if (longbo) {
+		longboResult(longbo, matlabProcess, function (err ,result){
+			if (err) {
+				throw err;
+			} else{
+				var position = "pic/longbo.png";
+				// var dataOut = result;
+				console.log("app: ", result);
+				console.log("type: ", typeof(result));
+				res.render('longboResult',{
+					dataOut: result,
+					position: position
+				});
+				console.log("\n" + "*******************finish calculate!" + "\n");
+			};
+		});
+	} else {
+ 		res.redirect('/logout');
+ 	}
+});
+var adsa = function(yinxing, r1, ε1, r2, ε2, res) {
+	if (yinxing) {
+		console.log("====", yinxing);
+		yinxingResult(yinxing, matlabProcess, function (err, rcst, rcsp){
+			if (err) {
+				throw err;
+			} else{
+				//TODO:
+				console.log('rcst: ', rcst);
+				console.log('rcsp: ', rcsp);
+				res.render('yinxingResult', {
+					rcst: rcst,
+					rcsp: rcsp,
+					r1: r1,
+					ε1: ε1,
+					r2: r2,
+					ε2: ε2,
+					position: "pic/yinxing.png"
+				});
+			}
+		});
+	} else{
+		res.redirect('/logout');
+	}
+};
+
+app.post('/yinxingOne', function(req, res) {
+	var r1 = 'r1:'+ ' ' +'3.0000';
+	var ε1 = 'ε1:'+ ' ' +'0+0j';
+	var r2 = 'r2:'+ ' ' +'3.0005';
+	var ε2 = 'ε2:'+ ' ' +'27+12.3j';
+	adsa(1, r1, ε1, r2, ε2, res);
+});
+app.post('/yinxingTwo', function(req, res) {
+	var r1 = 'r1:'+ ' ' +'3.0000';
+	var ε1 = 'ε1:'+ ' ' +'0+0j';
+	var r2 = 'r2:'+ ' ' +'3.000000001';
+	var ε2 = 'ε2:'+ ' ' +'1.21206+3.46553j';	
+	adsa(2, r1, ε1, r2, ε2, res);
+
 });
 
-// app.post('/', function (req, res) {
-// 	var trynum = {};
-//     var info = req.body;
-//     var sessionUser = req.session.user;
-// 	if (sessionUser) {
-// 		calculateResult(info, function (err, result) {
-// 			if (err) {
-// 				throw err;
-// 			}
-// 			trynum = {
-// 				r1: result[0],
-// 				x1: result[1],
-// 				tr1: result[2],
-// 				ti1: result[3],
-// 				r2: result[4],
-// 				x2: result[5],
-// 				tr2: result[6],
-// 				ti2: result[7],
-// 				r3: result[8],
-// 				x3: result[9],
-// 				tr3: result[10],
-// 				ti3: result[11],
-// 				position: "pic/firstpicture.png"
-// 			};
-// 			console.log(trynum);
-// 			res.render('result', {
-// 				dataIn: info,
-// 				dataOut: trynum,
-// 				dataUser: sessionUser
-// 			});
-// 			console.log("\n" + "*******************finish calculate!" + "\n");
-// 		});
-// 	} else {
-// 		res.redirect('/logout');
-// 	}
-    
-// });
+app.post('/zidingyi', function(req, res) {
+	var info = req.body;
+	if (info) {
+		zidingyiResult(info, matlabProcess, function (err ,rcst, rcsp){
+			if (err) {
+				throw err;
+			} else{
+				console.log('rcst: ', rcst);
+				console.log('rcsp: ', rcsp);
+				res.render('zidingyiResult', {
+					dataIn: info,
+					rcst: rcst,
+					rcsp: rcsp,
+					position: "pic/zidingyi.png"
+				});
+				console.log("\n" + "*******************finish calculate!" + "\n");
+			};
+		});
+	} else {
+ 		res.redirect('/logout');
+ 	}
+});
 
 process.on('uncaughtException', function (err) {
 	console.log(err);
